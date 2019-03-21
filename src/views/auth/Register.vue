@@ -39,7 +39,6 @@
 
 <script>
 import createCaptcha from '@/utils/createCaptcha'
-import ls from '@/utils/localStorage'
 
 export default {
   name: 'Register',
