@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 function showTitle(el, title) {
   const popover = getPopover()
   const popoverStyle = popover.style
