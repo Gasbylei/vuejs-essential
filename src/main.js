@@ -5,7 +5,9 @@ import store from './store/index.js'
 import './directives'
 import './components'
 import VueSweetalert2 from './plugins/vue-sweetalert2'
+import Message from './plugins/message'
 
+Vue.use(Message)
 Vue.use(VueSweetalert2)
 Vue.config.productionTip = false
 
