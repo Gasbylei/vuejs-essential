@@ -98,3 +98,62 @@ export const like = ({ commit, state }, { articleId, isAdd }) => {
   // 返回点赞用户列表
   return likeUsers
 }
+
+export const comment = ({ commit, state }, { articleId, comment, commentId }) => {
+  let articles = state.articles
+  let comments = []
+
+  if (!Array.isArray(articles)) articles = []
+
+  for (let article of articles) {
+    if (parseInt(article.articleId) === parseInt(articleId)) {
+      comments = Array.isArray(article.comments) ? article.comments : comments
+
+      if (comment) {
+        const { uid = 1, content } = comment
+        const date = new Date()
+
+        if (commentId === undefined) {
+          const lastComment = comments[comments.length - 1]
+
+          if (lastComment) {
+            commentId = parseInt(lastComment.commentId) + 1
+          } else {
+            commentId = comments.length + 1
+          }
+
+          comments.push({
+            uid,
+            commentId,
+            content,
+            date
+          })
+        } else { // commentId 不为 undefined 时
+          for (let comment of comments) {
+            // 找到对应的评论时
+            if (parseInt(comment.commentId) === parseInt(commentId)) {
+              // 更新评论的内容
+              comment.content = content
+              break
+            }
+          }
+        }
+      } else { // 不存在评论内容时
+        for (let comment of comments) {
+          // 找到对应的评论时
+          if (parseInt(comment.commentId) === parseInt(commentId)) {
+            // 删除这条评论
+            comments.splice(comments.indexOf(comment), 1)
+            break
+          }
+        }
+      }
+
+      article.comments = comments
+      break
+    }
+  }
+
+  commit('UPDATE_ARTICLES', articles)
+  return comments
+}
