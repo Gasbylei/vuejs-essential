@@ -6,6 +6,7 @@ import './directives'
 import './components'
 import VueSweetalert2 from './plugins/vue-sweetalert2'
 import Message from './plugins/message'
+import './filters'
 
 Vue.use(Message)
 Vue.use(VueSweetalert2)
