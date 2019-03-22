@@ -12,7 +12,7 @@
 
         <ul class="list-group">
           <!-- 使用 v-for 指令渲染文章列表 -->
-          <li v-for="article in articles" class="list-group-item"> 
+          <li v-for="article in articles" class="list-group-item" :key="article.id"> 
             <img v-if="user" :src="user.avatar" class="avatar avatar-small">
             <router-link :to="`/articles/${article.articleId}/content`" class="title">
               {{ article.title }}
