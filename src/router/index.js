@@ -13,7 +13,12 @@ const router = new Router({
 
 // 全局前置守卫
 router.beforeEach((to, from, next) => {
-  const auth = router.app.$options.store.state.auth
+  const app = router.app
+  const store = app.$options.store
+  const auth = store.state.auth
+  
+//导航到新页面前隐藏消息提示
+  app.$message.hide()
 
   if (
     (auth && to.path.indexOf('/auth/') !== -1) ||
