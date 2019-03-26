@@ -20,6 +20,11 @@ export default [
     component: () => import('@/views/auth/Login')
   },
   {
+    path: '/search',
+    name: 'Search',
+    component: () => import('@/views/Search')
+  },
+  {
     path: '/users/1/edit',
     component: () => import('@/views/users/Edit.vue'),
     children: [
