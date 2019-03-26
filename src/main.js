@@ -10,10 +10,18 @@ import Message from './plugins/message'
 import './filters'
 import { mockArticles } from './mock/data'
 import ls from './utils/localStorage'
+// 运行 ./mock/index.js
+import './mock'
+// 引入 axios 的默认值
+import axios from 'axios'
+
+// 将 axios 添加到 Vue.prototype 上，使其在实例内部的所有组件中可用
+Vue.prototype.$axios = axios
 
 Vue.use(Message)
 Vue.use(VueSweetalert2)
 Vue.config.productionTip = false
+
 
 const AddMockData = (() => {
   // 是否加入测试数据
