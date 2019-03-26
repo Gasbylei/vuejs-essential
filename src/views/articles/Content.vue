@@ -33,7 +33,7 @@
           <div class="user-lists">
             <span v-for="likeUser in likeUsers" :key="likeUser.id">
               <!-- 点赞用户是当前用户时，加上类 animated 和 swing 以显示一个特别的动画  -->
-              <router-link :to="`/${likeUser.uname}`" :src="likeUser.uavatar" tag="img" class="img-thumbnail avatar avatar-middle" :class="{ 'animated swing' : likeUser.uid === 1 }"></router-link> 
+              <router-link :to="`/${likeUser.uname}`" :src="`https://api.adorable.io/avatars/200/${likeUser.uname}`" tag="img" class="img-thumbnail avatar avatar-middle" :class="{ 'animated swing' : likeUser.uid === 1 }"></router-link> 
             </span>
           </div>
           <div v-if="!likeUsers.length" class="vote-hint">成为第一个点赞的人吧 ?</div>
@@ -69,7 +69,7 @@
           <li v-for="(comment, index) in comments" :key="comment.commentId" class="list-group-item media">
             <div class="avatar avatar-container pull-left">
               <router-link :to="`/${comment.uname}`">
-                <img :src="comment.uavatar" class="media-object img-thumbnail avatar avatar-middle">
+                <img :src="`https://api.adorable.io/avatars/200/${comment.uname}`" class="media-object img-thumbnail avatar avatar-middle">
               </router-link>
             </div>
             <div class="infos">

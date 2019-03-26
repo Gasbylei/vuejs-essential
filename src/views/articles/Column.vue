@@ -9,7 +9,7 @@
           <div class="panel-body text-center topic-author-box blog-info">
             <div class="image blog-cover">
               <router-link :to="`/${userName}`">
-                <img :src="userAvatar" class="avatar-112 avatar img-thumbnail">
+                <img :src="`https://api.adorable.io/avatars/200/${userName}`" class="avatar-112 avatar img-thumbnail">
               </router-link>
             </div>
             <div class="blog-name">
